@@ -1,0 +1,243 @@
+
+
+<h3 >Welcome {{name}}</h3>
+<form (submit)="onEditSubmit()">
+   <div class="panel panel-danger">
+      <div class="panel-heading">Details of {{name}}</div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group required" >
+                  <label>Customer Name *</label>
+                  <input class="form-control" type="text" [(ngModel)]="customerName" name="customerName" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-6">
+               <div class="form-group required">
+                  <label>Address *</label>
+                  <input class="form-control" type="text" [(ngModel)]="address" name="address" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Pin Code *</label>
+                  <input class="form-control" type="text" [(ngModel)]="pinCode" name="pinCode" required="required">
+              </div>
+            </div>
+         </div>
+         <div class="row" >
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Location/City *</label>
+                  <input class="form-control" type="text" [(ngModel)]="location" name="location" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>State *</label>
+                  <input class="form-control" type="text" [(ngModel)]="state" name="state" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Mobile Number *</label>
+                  <input class="form-control" type="text" [(ngModel)]="phoneNo" name="phoneNo" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input class="form-control" type="text" [(ngModel)]="mobileNo" name="mobileNo" required="required">
+               </div>
+            </div>
+         </div>
+         <div class="row" >
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Email *</label>
+                  <input class="form-control" type="text" [(ngModel)]="email" name="email" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+               <div class="form-group">
+                  <label>Pan Number *</label>
+                  <input class="form-control" type="text" [(ngModel)]="pan" name="pan" required="required">
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+               <div class="form-group">
+                  <label>VAT</label>
+                  <input class="form-control" type="text" [(ngModel)]="vat" name="vat" >
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+               <div class="form-group">
+                  <label>CST</label>
+                  <input class="form-control" type="text" [(ngModel)]="cst" name="cst" >
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+               <div class="form-group">
+                  <label>ECC</label>
+                  <input class="form-control" type="text" [(ngModel)]="ecc" name="ecc" >
+               </div>
+            </div>
+         </div>
+         <div class="row" >
+            <div class="col-xs-6 col-md-9">
+              <label>Please Select which describes you accurately *</label>
+               <div class="btn-group" data-toggle="buttons" > <!-- class="btn btn-primary active"-->
+                  <label class="btn btn-primary" [ngClass]="{'active': optionSelected == '1'}">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked (click)="showButton(1)"> Registered for GST
+                  </label>
+                  <label class="btn btn-primary" [ngClass]="{'active': optionSelected == '2' }">
+                  <input type="radio" name="options" id="option2" autocomplete="off" (click)="hideButton(2)"> Not Registered
+                  </label>
+                  <label class="btn btn-primary" [ngClass]="{'active': optionSelected == '3'}">
+                  <input type="radio" name="options" id="option3" autocomplete="off" (click)="showButton(3)"> Compounding Schemes
+                  </label>
+                  <label class="btn btn-primary" [ngClass]="{'active': optionSelected == '4'}">
+                  <input type="radio" name="options" id="option4" autocomplete="off" (click)="showButton(4)"> PSU/Government Organization
+                  </label>
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Name</label>
+                  <input class="form-control" type="text" [(ngModel)]="name" name="name" readonly="readonly">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <hr />
+   <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+   [speed]="'400'" [showSpinner]="'true'" [direction]="'leftToRightIncreased'"
+   [color]="'red'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'"
+   ></ng-progress>
+   <div class="panel panel-warning" [hidden]="showaddbutton || optionSelected == ''">
+      <div class="panel-heading">
+         Fill in the GST details state wise
+      </div>
+      <div class="panel-body">
+         <div class="row" >
+            <div class="col-xs-6 col-md-9">
+               <div class="form-group">
+                  <h4>Please fill in state wise GST details by clicking button on right side *</h4>
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+               <div class="form-group">
+                  <label>Add GST State Details(multiple) *</label>
+                  <button type="button" class="btn btn-default mybtn-red" aria-label="Left Align" (click)="createRange()">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="panel panel-danger" [hidden]="showaddbutton == false ">
+      <div class="panel-heading">
+         Notification for Un-registered dealers 
+      </div>
+      <div class="panel-body">
+         <div class="row" >
+            <div class="col-xs-6 col-md-9">
+               <div class="form-group">
+                  <h4>Notification for Un-registered dealers : Since only registered dealers will be eligible for GST Input Tax Credit, it is advisable to get registered under GST.</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div *ngFor="let gSTData of gSTDatas; let i = index; trackBy:trackByIndex;" [hidden]="showaddbutton">
+      <div class="panel panel-info">
+         <div class="panel-heading">
+            State of {{gSTData.GSTState}}
+            <button type="button" class="close mybtn-closered" data-target="#copyright-wrap" data-dismiss="alert"(click)="closePanel(i)"> <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+         </div>
+         <div class="panel-body">
+            <div class="row" >
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>GST State *</label>
+                     <select [ngModel]="gSTData.GSTState"  (ngModelChange)= "setState($event, i)" class="form-control" name="GSTState{{i}}" required="required">
+                          <option *ngFor="let stateitem of stateitems ; let j = index;" [hidden]="stateitemshidden[j]" >{{stateitem}}</option>
+                     </select>
+                    <!-- <select [ngModel]="gSTData.GSTState"  (ngModelChange)= "setState($event, i, i)" class="form-control" name="GSTState">
+                          <option *ngFor="let stateitem of stateitems; let j = index;" >{{stateitem}} {{j}}</option>
+                     </select>
+                      <input class="form-control" type="text" [value]="gSTData.GSTARN"
+                     (input)="gSTData.GSTARN=$event.target.value" name="gSTARN" >-->
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Contact person for GST *</label>
+                     <input class="form-control" type="text" [value]="gSTData.ContactPersonForGST"
+                     (input)="gSTData.ContactPersonForGST=$event.target.value" name="contactPersonForGST" required="required">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Contact number of person for GST *</label>
+                     <input class="form-control" type="text" [value]="gSTData.ContactNumberForGST"
+                     (input)="gSTData.ContactNumberForGST=$event.target.value" name="contactNumberForGST" required="required">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Provisional GST number *</label>
+                     <input class="form-control" type="text" [value]="gSTData.ProvisionalGSTNumber"
+                     (input)="gSTData.ProvisionalGSTNumber=$event.target.value" name="provisionalGSTNumber" required="required">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>HSN Code</label>
+                     <input class="form-control" type="text" [value]="gSTData.HSNCode"
+                     (input)="gSTData.HSNCode=$event.target.value" name="hSNCode" >
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Service Accounting Number</label>
+                     <input class="form-control" type="text" [value]="gSTData.ServiceAccountingNumber"
+                     (input)="gSTData.ServiceAccountingNumber=$event.target.value" name="serviceAccountingNumber" >
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Contact Email for GST *</label>
+                     <input class="form-control" type="text" [value]="gSTData.ContactEmailForGST"
+                     (input)="gSTData.ContactEmailForGST=$event.target.value" name="contactEmailForGST" required="required">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Image of GST certificate *</label>
+                     <input id="image{{i}}" name="image" [(ngModel)]="image" multiple="" type="file" required="required">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!--
+      <div class="form-group">
+        <label>Type</label>
+        <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
+          <option value="Estate">Estate</option>
+          <option value="Condo">Condo</option>
+          <option value="Apartment">Apartment</option>
+        </select>
+      </div>
+      
+      -->
+   <input type="submit" value="Submit" class="btn btn-success">
+</form>

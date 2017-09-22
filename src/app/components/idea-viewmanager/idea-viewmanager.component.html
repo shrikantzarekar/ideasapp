@@ -1,0 +1,151 @@
+
+
+<h3 >View Idea</h3>
+<form (submit)="editidea()">
+  
+   <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+   [speed]="'400'" [showSpinner]="'true'" [direction]="'leftToRightIncreased'"
+   [color]="'red'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'"
+   ></ng-progress>
+
+
+
+
+
+
+
+      <div class="panel panel-info">
+         <div class="panel-heading">
+            Please review and second this idea
+         </div>
+         <div class="panel-body">
+
+            <div class="row">
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Proposed by</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaProposedBy"
+                     (input)="ideadata.IdeaProposedBy=$event.target.value" name="IdeaProposedBy" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Team Members</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaTeamMembers"
+                     (input)="ideadata.IdeaTeamMembers=$event.target.value" name="IdeaTeamMembers" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Seconded by Manager</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaSecondedByManagerStatus"
+                     (input)="ideadata.IdeaSecondedByManagerStatus=$event.target.value" name="IdeaSecondedByManagerStatus" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Seconded by Department</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaSecondedByDepartmentNameStatus"
+                     (input)="ideadata.IdeaSecondedByDepartmentNameStatus=$event.target.value" name="IdeaSecondedByDepartmentNameStatus" readonly="readonly">
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-xs-6 col-md-12">
+                  <div class="form-group">
+                     <label>Title of idea</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaTitle"
+                     (input)="ideadata.IdeaTitle=$event.target.value" name="IdeaTitle" readonly="readonly">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Revenue Impact(in Lakhs)</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaRevenueImpact"
+                     (input)="ideadata.IdeaRevenueImpact=$event.target.value" name="IdeaRevenueImpact" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Cost Impact(in Lakhs)</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaCostImpact"
+                     (input)="ideadata.IdeaCostImpact=$event.target.value" name="IdeaCostImpact" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Impact Area</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaImpactArea"
+                     (input)="ideadata.IdeaImpactArea=$event.target.value" name="IdeaImpactArea" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Impact Type</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaImpactType"
+                     (input)="ideadata.IdeaImpactType=$event.target.value" name="IdeaImpactType" readonly="readonly">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Capital required(in Lakh)</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaCapitalInvestment"
+                     (input)="ideadata.IdeaCapitalInvestment=$event.target.value" name="IdeaCapitalInvestment" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-6">
+                  <div class="form-group">
+                     <label>Support required</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaReourcesDescription"
+                     (input)="ideadata.IdeaReourcesDescription=$event.target.value" name="IdeaReourcesDescription" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Challenges</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaChallengesDescription"
+                     (input)="ideadata.IdeaChallengesDescription=$event.target.value" name="IdeaChallengesDescription" readonly="readonly">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6 col-md-6">
+                  <div class="form-group">
+                     <label>Primary Partner Department</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaPrimaryPartnerDepartment"
+                     (input)="ideadata.IdeaPrimaryPartnerDepartment=$event.target.value" name="IdeaPrimaryPartnerDepartment" readonly="readonly">
+                  </div>
+               </div>
+               <div class="col-xs-6 col-md-6">
+                  <div class="form-group">
+                     <label>Other Partner Department</label>
+                     <input class="form-control" rows="5" type="text" [value]="ideadata.IdeaOtherPartnerDepartment"
+                     (input)="ideadata.IdeaOtherPartnerDepartment=$event.target.value" name="IdeaOtherPartnerDepartment" readonly="readonly">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6 col-md-9">
+                  Use the link on the right to download the attachment. This attachment contains details related to the idea.
+               </div>
+               
+               <div class="col-xs-6 col-md-3">
+                  <div class="form-group">
+                     <label>Attached document</label>
+                     <br/>
+                     <a href={{ideadata.IdeaAttachmentLink}}>{{ideadata.IdeaAttachmentName}}</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+ <input type="submit" value="Click to Second this Idea" class="btn btn-success">
+</form>

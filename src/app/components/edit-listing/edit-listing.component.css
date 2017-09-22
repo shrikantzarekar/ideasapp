@@ -1,0 +1,11 @@
+.mybtn-red {
+   color: darkred;
+}
+.mybtn-closered {
+   color: red;
+}
+
+.form-group.required .control-label:after { 
+   content:"*";
+   color:red;
+}

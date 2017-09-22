@@ -1,0 +1,64 @@
+<a class="btn btn-common" (click) = "gotoaddidea()">Add Idea</a>
+<div *ngIf="admin"><a class="btn btn-common"  (click) = "gotoadminidea()">Enter As Admin</a></div>
+
+
+
+<div class="row">
+	<div class="col-xs-12">
+		<form class="well">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search ideas..." [(ngModel)]="search2" name="search" (keyup)="searchProps()">	
+			</div>						
+		</form>	
+
+	</div>
+</div>
+
+
+
+	
+
+<table class="table">
+  <tr>
+    <th>#</th>
+    <th>Impact Area</th>
+    <th>Proposed by</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Location</th>
+    <th>Attachment</th>
+    <th>Details</th>
+  </tr>
+  <tr *ngFor="let listing of ideasdatalist; let i = index; trackBy:trackByIndex;">
+     <td>
+        {{i+1}}
+    </td>
+    <td>
+        {{listing.IdeaImpactArea || '-----'}}
+    </td>
+    <td>
+        {{listing.IdeaProposedBy || '-----'}}
+    </td>
+    <td>
+        {{listing.IdeaDate || '-----'}}
+    </td>
+    <td>
+        {{listing.IdeasStatus || '-----'}}
+    </td>
+    
+    <td>
+        {{listing.IdeaLocation || '-----'}}
+    </td>
+
+    <td>
+      <a href= {{listing.IdeaAttachmentLink}}>
+        {{listing.IdeaAttachmentName || '-----'}}
+      </a>
+    </td>
+
+    <td><a [routerLink]="['/idea-view/'+listing.$key]">
+    <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span></a></td>
+
+  </tr>
+  
+</table>

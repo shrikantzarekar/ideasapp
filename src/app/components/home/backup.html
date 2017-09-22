@@ -1,0 +1,32 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+
+				
+				<a *ngIf="(af.auth | async)"[routerLink]="['/instructions']">Read instructions</a>
+
+						
+							<div class="modal-dialog">
+								<div *ngIf="!(af.auth | async)" class="loginmodal-container">
+									<h1>Login to Your Account</h1><br>
+									<form >
+									<input [(ngModel)] = "username" name = "username" type="text" name="user" placeholder="Username">
+									<input [(ngModel)] = "password" name = "password" type="password" name="pass" placeholder="Password">
+									<input type="submit" name="login" class="login loginmodal-submit" value="Login"(click) = "login()">
+									</form>
+									
+									<div class="login-help">
+									Refer to the email we had sent
+									</div>
+								</div>
+								<div *ngIf="(af.auth | async)" class="loginmodal-container">
+									<h1>Welcome to Orient Cement</h1><br>
+									<form >
+									<input type="submit" name="login" class="login loginmodal-submit" value="Enter Portal"(click) = "editform()">
+									</form>
+								</div>
+							</div>
+
+		</div>
+	</div>
+</div>
